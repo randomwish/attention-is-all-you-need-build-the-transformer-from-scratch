@@ -22,8 +22,13 @@ def build_token_to_id_vocab(sentences, specials=('<pad>', '<bos>', '<eos>', '<un
             special_count += 1
     return dict(new_dictionary)
 
-# Step 2 - build_id_to_token_vocab (not yet solved)
-# TODO: implement
+# Step 2 - build_id_to_token_vocab
+def build_id_to_token_vocab(token_to_id):
+    # TODO: build the inverse id-to-token dictionary from token_to_id
+    new_dict = {}
+    for key, value in token_to_id.items():
+        new_dict[value] = key
+    return new_dict
 
 # Step 3 - encode_sentence_to_ids (not yet solved)
 # TODO: implement
