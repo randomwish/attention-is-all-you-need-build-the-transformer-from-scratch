@@ -107,8 +107,18 @@ def fill_odd_indices_with_cos(pe, position, div_term):
     pe[:, 1::2] = torch.cos(position * div_term)
     return pe
 
-# Step 12 - build_sinusoidal_positional_encoding (not yet solved)
-# TODO: implement
+# Step 12 - build_sinusoidal_positional_encoding
+import torch
+
+def build_sinusoidal_positional_encoding(max_len, d_model):
+    """Assemble the (max_len, d_model) sinusoidal positional encoding matrix."""
+    # TODO: build the (max_len, d_model) sinusoidal positional encoding matrix
+    base_matrix = torch.zeros((max_len, d_model))
+    div_term = compute_positional_div_term(d_model)
+    pos_col = build_position_index_column(max_len)
+    even_mat = fill_even_indices_with_sin(base_matrix, pos_col, div_term)
+    odd_mat = fill_odd_indices_with_cos(even_mat, pos_col, div_term)
+    return odd_mat
 
 # Step 13 - add_positional_encoding_to_embeddings (not yet solved)
 # TODO: implement
